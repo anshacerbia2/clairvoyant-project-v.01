@@ -1,0 +1,38 @@
+[
+  {
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "airportName": "Soekarno-Hatta International Airport",
+    "IATA": "CGK"
+  },
+  {
+    "city": "Bandung",
+    "country": "Indonesia",
+    "airportName": "Husein Sastranegara Internation Airport",
+    "IATA": "BDO"
+  },
+  {
+    "city": "Medan",
+    "country": "Indonesia",
+    "airportName": "Kualanamu International Airport",
+    "IATA": "KNO"
+  },
+  {
+    "city": "Padang",
+    "country": "Indonesia",
+    "airportName": "Minangkabau Internation Airport",
+    "IATA": "PDG"
+  },
+  {
+    "city": "Semarang",
+    "country": "Indonesia",
+    "airportName": "General Ahmad Yani International Airport",
+    "IATA": "SRG"
+  },
+  {
+    "city": "Surabaya",
+    "country": "Indonesia",
+    "airportName": "Juanda International Airport",
+    "IATA": "SUB"
+  }
+]

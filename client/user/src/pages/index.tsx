@@ -3,14 +3,18 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.scss";
-import ServicesSearchBox from "@/components/ServicesSearchBox";
+import ServicesSearchBox from "@/components/SearchServiceBox";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import type { NextPage } from "next";
+import NavBar from "@/components/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+type HomePage<P = {}> = NextPage<P> & {
+  getLayout?: (page: JSX.Element) => JSX.Element;
+};
 
-export default function Home() {
+const Home: HomePage = (props) => {
   const { locale, locales, push } = useRouter();
   const { t, lang } = useTranslation("home");
 
@@ -30,8 +34,18 @@ export default function Home() {
       </div>
     </>
   );
-}
+};
 
+Home.getLayout = (page: JSX.Element) => {
+  return (
+    <>
+      <NavBar {...page.props} />
+      {page}
+    </>
+  );
+};
+
+export default Home;
 // export const getStaticProps: GetStaticProps = async ({ locale }) => {
 //   console.log(locale, ">");
 //   return {

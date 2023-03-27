@@ -1,4 +1,6 @@
 {
   "from": "From",
-  "to": "To"
+  "to": "To",
+  "departureDate": "Departure Date",
+  "returnDate": "Return Date"
 }

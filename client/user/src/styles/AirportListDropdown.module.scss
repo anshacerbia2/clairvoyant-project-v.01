@@ -1,0 +1,50 @@
+#AirportListDropdown {
+  position: absolute;
+  left: 0;
+  will-change: top, opacity;
+  width: 400px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 0 16px rgb(0 0 0 / 15%);
+  border-radius: 4px;
+  opacity: 0;
+  z-index: 3;
+  transition: top 0.1s ease-in-out, opacity 0.1s ease-in-out;
+}
+
+.arrow {
+  position: absolute;
+  left: 20px;
+  top: -8px;
+  // z-index: 1;
+  height: 16px;
+  width: 16px;
+  transform: rotate(45deg);
+  background-color: #fff;
+  box-shadow: -1px -1px 5px 1px rgba(0, 0, 0, 0.04);
+}
+
+.dropdown-wrapper {
+  position: relative;
+  // height: 316px;
+  padding: 8px 0;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+
+  .dropdown-item {
+    font-size: 14px;
+    padding: 4px 12px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background-color: #e6e7f0;
+      // color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  .item-not-found {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+}

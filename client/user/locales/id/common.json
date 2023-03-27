@@ -1,4 +1,6 @@
 {
   "from": "Dari",
-  "to": "Ke"
+  "to": "Ke",
+  "departureDate": "Pergi",
+  "returnDate": "Pulang"
 }

@@ -8,7 +8,7 @@ export const getFirstLastDayIndexInMonth = (
   year: number,
   month: number
 ): number[] => {
-  const currentDate = new Date();
+  const currentDate = new Date(year, month);
   const firstDayIndex = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
@@ -33,20 +33,19 @@ export const getLastDayIndexLastMonth = (
   return new Date(2023, new Date().getMonth(), 0).getDay();
 };
 
-export const getDayList = (year: number, month: number) => {
+export const getDayList = (year: number, month: number): number[] => {
   const totalDays = getTotalDaysInMonth(year, month);
-  console.log(totalDays, year, month);
-
   const [firstDayIndex, lastDayIndex] = getFirstLastDayIndexInMonth(
     year,
     month
   );
   const lastDateLastMonth = getLastDateLastMonth(year, month);
   const dayList: number[] = [];
+  // console.log(year, month, totalDays, firstDayIndex, lastDayIndex, ">");
 
   // Add date last month
   for (let l = lastDateLastMonth; l > lastDateLastMonth - firstDayIndex; l--) {
-    dayList.push(l);
+    dayList.push(0);
   }
   // Add date current month
   for (let c = 1; c <= totalDays; c++) {
@@ -54,7 +53,7 @@ export const getDayList = (year: number, month: number) => {
   }
   // Add date next month
   for (let n = 1; n <= 6 - lastDayIndex; n++) {
-    dayList.push(n);
+    dayList.push(0);
   }
 
   return dayList;

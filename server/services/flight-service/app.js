@@ -1,16 +1,43 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
-
 const express = require("express");
+const cors = require("cors");
+const Amadeus = require("amadeus");
+const amadeus = new Amadeus({
+  clientId: "nMMpGIhgbhHMSULVsRt80wA9WtMcYm7q",
+  clientSecret: "jcGHOmq0Ke0wYSIp",
+});
 const app = express();
 const port = process.env.port || 4002;
-const cors = require("cors");
 const router = require("./routes");
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extends: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(router);
-// app.use(ErrorHandler);
+app.get(`/flight-search`, async (request, response) => {
+  try {
+    const { originLocationCode, destinationLocationCode, departureDate } =
+      request.query;
+    const data = await amadeus.shopping.flightOffersSearch.get({
+      originLocationCode,
+      destinationLocationCode,
+      departureDate,
+      adults: "1",
+      max: "250",
+    });
+    response.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// od->malindo
+// iu->superjet
+// ga->garuda
+// id->batik
+// jt-lion
+// qg-citilink
+// iw-wings
 
 // const GDS_URL = "https://test.api.amadeus.com/v2";
 // app.get("/flight-service/airport-list", async (request, response) => {

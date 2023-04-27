@@ -9,6 +9,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      type: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       city: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -17,11 +21,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      airportName: {
+      name: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      IATA: {
+      code: {
         allowNull: false,
         type: Sequelize.STRING,
       },

@@ -13,6 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   AirportList.init(
     {
+      type: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { message: "Type is required." },
+          notEmpty: { message: "Type is required." },
+        },
+      },
       city: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -29,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { message: "Country is required." },
         },
       },
-      airportName: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -37,12 +45,12 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { message: "Airport Name is required." },
         },
       },
-      IATA: {
+      code: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: { message: "IATA is required." },
-          notEmpty: { message: "IATA is required." },
+          notNull: { message: "City/IATA code is required." },
+          notEmpty: { message: "City/IATA code is required." },
         },
       },
     },

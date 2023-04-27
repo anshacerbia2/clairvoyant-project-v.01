@@ -10,8 +10,7 @@ interface IDatePickerProps {
   calendarType: string;
   departureDate: Date;
   returnDate: Date;
-  changeDepartureDate: (date: Date) => void;
-  changeReturnDate: (date: Date) => void;
+  handleChange: (prefix: string, date: Date) => void;
   hideCalendar: () => void;
   forceClose: boolean;
 }
@@ -35,8 +34,7 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
       calendarType,
       departureDate,
       returnDate,
-      changeDepartureDate,
-      changeReturnDate,
+      handleChange,
       forceClose,
     },
     ref
@@ -83,7 +81,7 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
 
     useEffect((): void => {
       setHeight((ref as React.RefObject<HTMLDivElement>).current?.offsetHeight);
-    }, [date]);
+    }, [date, ref]);
 
     useEffect((): void => {
       if (forceClose) fadeOut();
@@ -155,15 +153,10 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
     };
 
     const changeDate = (value: number): void => {
-      if (calendarType == "departure") {
-        changeDepartureDate(
-          new Date(`${date.currentYear}-${date.currentMonth + 1}-${value}`)
-        );
-      } else {
-        changeReturnDate(
-          new Date(`${date.currentYear}-${date.currentMonth + 1}-${value}`)
-        );
-      }
+      handleChange(
+        calendarType,
+        new Date(`${date.currentYear}-${date.currentMonth + 1}-${value}`)
+      );
       setDate({
         ...date,
         selectedYear: date.currentYear,
@@ -208,7 +201,7 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
         <div className={styles["arrow"]}></div>
         <div className={styles["content"]}>
           <div className={styles["navigation"]}>
-            <button type="button" onClick={prevMonth}>
+            <button type="button" className="c-btn" onClick={prevMonth}>
               <svg
                 viewBox="0 0 18 18"
                 role="presentation"
@@ -233,7 +226,7 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
               &nbsp;
               <span>{date.currentYear}</span>
             </div>
-            <button type="button" onClick={nextMonth}>
+            <button type="button" className="c-btn" onClick={nextMonth}>
               <span>
                 <svg
                   viewBox="0 0 18 18"
@@ -291,7 +284,7 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
                   >
                     {value ? (
                       isDisabledDay(value) ? (
-                        <button type="button" disabled>
+                        <button type="button" className="c-btn" disabled>
                           {value}
                         </button>
                       ) : (
@@ -301,7 +294,9 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
                             changeDate(value);
                           }}
                           className={
-                            isSelectedDate(value) ? styles["selected"] : ""
+                            isSelectedDate(value)
+                              ? styles["selected"] + " c-btn"
+                              : "c-btn"
                           }
                         >
                           {value}
@@ -321,4 +316,5 @@ const DatePickerV1 = React.forwardRef<HTMLDivElement, IDatePickerProps>(
   }
 );
 
+DatePickerV1.displayName = "DatePickerV1";
 export default DatePickerV1;

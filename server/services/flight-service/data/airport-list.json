@@ -1,38 +1,72 @@
 [
   {
+    "type": "CITY",
     "city": "Jakarta",
     "country": "Indonesia",
-    "airportName": "Soekarno-Hatta International Airport",
-    "IATA": "CGK"
+    "name": "All Airports in Jakarta",
+    "code": "JKTA"
   },
   {
+    "type": "CITY",
+    "city": "Tokyo",
+    "country": "Japan",
+    "name": "All Airports in Tokyo",
+    "code": "TYOA"
+  },
+  {
+    "type": "AIRPORT",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "name": "Soekarno-Hatta International Airport",
+    "code": "CGK"
+  },
+  {
+    "type": "AIRPORT",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "name": "Halim Perdanakusuma International Airport",
+    "code": "HLP"
+  },
+  {
+    "type": "AIRPORT",
     "city": "Bandung",
     "country": "Indonesia",
-    "airportName": "Husein Sastranegara Internation Airport",
-    "IATA": "BDO"
+    "name": "Husein Sastranegara Internation Airport",
+    "code": "BDO"
   },
   {
+    "type": "AIRPORT",
     "city": "Medan",
     "country": "Indonesia",
-    "airportName": "Kualanamu International Airport",
-    "IATA": "KNO"
+    "name": "Kualanamu International Airport",
+    "code": "KNO"
   },
   {
+    "type": "AIRPORT",
     "city": "Padang",
     "country": "Indonesia",
-    "airportName": "Minangkabau Internation Airport",
-    "IATA": "PDG"
+    "name": "Minangkabau Internation Airport",
+    "code": "PDG"
   },
   {
+    "type": "AIRPORT",
     "city": "Semarang",
     "country": "Indonesia",
-    "airportName": "General Ahmad Yani International Airport",
-    "IATA": "SRG"
+    "name": "General Ahmad Yani International Airport",
+    "code": "SRG"
   },
   {
+    "type": "AIRPORT",
     "city": "Surabaya",
     "country": "Indonesia",
-    "airportName": "Juanda International Airport",
-    "IATA": "SUB"
+    "name": "Juanda International Airport",
+    "code": "SUB"
+  },
+  {
+    "type": "AIRPORT",
+    "city": "Bali",
+    "country": "Indonesia",
+    "name": "Ngurah Rai International Airport",
+    "code": "DPS"
   }
 ]

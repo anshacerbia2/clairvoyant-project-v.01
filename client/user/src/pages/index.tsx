@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.scss";
-import ServicesSearchBox from "@/components/SearchServiceBox";
+import HomeSearchBox from "@/components/HomeSearchBox";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
@@ -14,7 +14,7 @@ type HomePage<P = {}> = NextPage<P> & {
   getLayout?: (page: JSX.Element) => JSX.Element;
 };
 
-const Home: HomePage = (props) => {
+const Home: HomePage = () => {
   const { locale, locales, push } = useRouter();
   const { t, lang } = useTranslation("home");
 
@@ -29,7 +29,16 @@ const Home: HomePage = (props) => {
 
       <div>
         <div className="container">
-          <ServicesSearchBox />
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "fixed",
+              left: 0,
+              top: 0,
+            }}
+          ></div>
+          <HomeSearchBox />
         </div>
       </div>
     </>
